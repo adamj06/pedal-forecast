@@ -13,14 +13,15 @@ export default function Search({ onSearch }) {
     };
     
     return (
-        <form onSubmit={handleSubmit}>
-        <input
-            type="text"
-            placeholder="Enter place name"
-            value={search}
-            onChange={handleChange}
-        />
-        <button type="submit">Search</button>
+        <form onSubmit={handleSubmit} className="mb-4">
+            <input
+                type="text"
+                placeholder="Enter place name"
+                value={search}
+                onChange={handleChange}
+                className="p-2 border rounded mr-2"
+            />
+            <button type="submit" className="p-2 bg-blue-500 text-white rounded">Search</button>
         </form>
     );
 }
