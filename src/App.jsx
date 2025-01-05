@@ -32,12 +32,12 @@ function App() {
   }
 
   return (
-    <>
+    <div className="p-4 max-w-md mx-auto">
       <Search onSearch={fetchWeather} />
       {isLoading && <p>Loading...</p>}
-      {error && <p>{error.message}</p>}
+      {error && <p className="text-red-500">{error.message}</p>}
       <WeatherDisplay data={weatherData} />
-    </>
+    </div>
   )
 }
 
