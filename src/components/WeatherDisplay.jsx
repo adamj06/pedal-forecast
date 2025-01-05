@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function WeatherDisplay({ data }) {
     if (!data) {
-        return <p>Please enter a place name...</p>
+        return;
     }
 
     const { name, main, weather } = data;
