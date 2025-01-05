@@ -4,30 +4,38 @@ import Search from './components/Search'
 import WeatherDisplay from './components/WeatherDisplay'
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null)
+  const [weatherData, setWeatherData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSearch = (search) => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
-    )
-    .then((res) => {
-      if (!res.ok) {
-      throw new Error('Network response was not ok')
+  const fetchWeather = async (placeName) => {
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${placeName}&units=metric&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
+      );
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+      
+      const data = await response.json();
+      setWeatherData(data);
 
-      return res.json()
-    })
-    .then((data) => {
-      setWeatherData(data)
-    })
-    .catch((error) => {
-      console.error('There was a problem with the fetch operation:', error)
-    })
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
     <>
-      <Search onSearch={handleSearch} />
+      <Search onSearch={fetchWeather} />
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error.message}</p>}
       <WeatherDisplay data={weatherData} />
     </>
   )

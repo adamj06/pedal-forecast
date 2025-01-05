@@ -1,8 +1,6 @@
-import { useState } from "react";
-
 export default function WeatherDisplay({ data }) {
     if (!data) {
-        return <p>No weather data found. Have you entered a place name?</p>
+        return;
     }
 
     const { name, main, weather } = data;
