@@ -79,7 +79,6 @@ function App() {
             {displayAlert &&
               <>
                 <Alert message="Please enter a real place name to get the weather forecast. For example, 'New York' or 'London'." />
-                <div className="mt-8"></div>
               </>
             }
             {!displayAlert && <WeatherDisplay data={weatherData} />}
