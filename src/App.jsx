@@ -69,6 +69,7 @@ function App() {
             <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
               See the weather forecast for your next bike ride.
             </p>
+            <Search onSearch={fetchWeather} />
           </div>
         </div>
         <div
