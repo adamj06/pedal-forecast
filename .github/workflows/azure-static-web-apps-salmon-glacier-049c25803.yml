@@ -43,3 +43,4 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           VITE_OPENWEATHERMAP_API_KEY: ${{ secrets.VITE_OPENWEATHERMAP_API_KEY }}
+          VITE_GOOGLEMAPS_API_KEY: ${{ secrets.VITE_GOOGLEMAPS_API_KEY }}
