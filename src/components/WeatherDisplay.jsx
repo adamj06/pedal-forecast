@@ -16,6 +16,7 @@ export default function WeatherDisplay({ data }) {
                 <div className="px-4 py-6 sm:px-6">
                     <h3 className="text-base/7 font-semibold text-gray-900">Weather Information</h3>
                     <p className="mt-1 max-w-2xl text-sm/6 text-gray-500">An overview of the current conditions.</p>
+                    <div className="mt-8"></div>
                     <div style={{ width: '100%', height: '400px' }}>
                         <APIProvider apiKey={import.meta.env.VITE_GOOGLEMAPS_API_KEY}>
                             <Map
