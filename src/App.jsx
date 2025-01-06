@@ -8,6 +8,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [displayAlert, setDisplayAlert] = useState(false);
 
   const fetchWeather = async (placeName) => {
     setIsLoading(true);
@@ -24,9 +25,11 @@ function App() {
       
       const data = await response.json();
       setWeatherData(data);
+      setDisplayAlert(false);
 
     } catch (error) {
       setError(error);
+      setDisplayAlert(true);
     } finally {
       setIsLoading(false);
     }
@@ -73,8 +76,13 @@ function App() {
             </p>
             <Search onSearch={fetchWeather} />
             <div className="mt-8"></div>
-            {error && <Alert message="Please enter a real place name to get the weather forecast. For example, 'New York' or 'London'." />}
-            <WeatherDisplay data={weatherData} />
+            {displayAlert &&
+              <>
+                <Alert message="Please enter a real place name to get the weather forecast. For example, 'New York' or 'London'." />
+                <div className="mt-8"></div>
+              </>
+            }
+            {!displayAlert && <WeatherDisplay data={weatherData} />}
           </div>
         </div>
 
