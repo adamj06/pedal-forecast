@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Search from './components/Search'
 import WeatherDisplay from './components/WeatherDisplay'
+import Alert from './components/Alert'
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -72,6 +73,7 @@ function App() {
             </p>
             <Search onSearch={fetchWeather} />
             <div className="mt-8"></div>
+            {error && <Alert message="Please enter a real place name to get the weather forecast. For example, 'New York' or 'London'." />}
             <WeatherDisplay data={weatherData} />
           </div>
         </div>
