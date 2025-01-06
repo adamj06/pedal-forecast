@@ -10,6 +10,7 @@ export default function Search({ onSearch }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSearch(search);
+        setSearch("");
     };
     
     return (
