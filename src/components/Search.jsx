@@ -13,15 +13,23 @@ export default function Search({ onSearch }) {
     };
     
     return (
-        <form onSubmit={handleSubmit} className="mb-4">
+        <form className="mt-5 sm:flex sm:items-center" onSubmit={handleSubmit}>
             <input
+                id="placeName"
+                name="placeName"
                 type="text"
-                placeholder="Enter place name"
+                placeholder="Enter a place name..."
+                aria-label="Place name"
                 value={search}
                 onChange={handleChange}
-                className="p-2 border rounded mr-2"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             />
-            <button type="submit" className="p-2 bg-blue-500 text-white rounded">Search</button>
+            <button
+            type="submit"
+            className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:ml-3 sm:mt-0 sm:w-auto"
+            >
+            Search
+            </button>
         </form>
     );
 }
