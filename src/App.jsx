@@ -13,8 +13,13 @@ function App() {
     setError('');
 
     try {
+      const apiKey = import.meta.env.VITE_OPENWEATHERMAP_API_KEY || process.env.REACT_OPENWEATHERMAP_API_KEY;
+      if (!apiKey) {
+        throw new Error('API key is not defined');
+      }
+
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${placeName}&units=metric&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${placeName}&units=metric&appid=${apiKey}`
       );
       
       if (!response.ok) {
