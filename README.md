@@ -1,8 +1,6 @@
-# React + Vite
+# Pedal Forecast
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application was created using Vite, which currently displays the latest weather information for an entered location name. This is achieved using the OpenWeatherMap API.
+Hosted using Azure Static Web Apps: https://salmon-glacier-049c25803.4.azurestaticapps.net/
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project will be updated to include information relevant to cycling safety and performance.
